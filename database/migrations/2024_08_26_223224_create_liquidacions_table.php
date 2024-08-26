@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('liquidacions', function (Blueprint $table) {
             $table->id();
+            $table->json('viajes');
+            $table->json('depositos');
+            $table->text('rutas');
+            $table->text('total');
+            $table->text('resultado');
+            $table->enum('estado', ['pendiente', 'pagado'])->default('pendiente');
+            $table->foreignIdFor(\App\Models\Condutor::class);
             $table->timestamps();
         });
     }

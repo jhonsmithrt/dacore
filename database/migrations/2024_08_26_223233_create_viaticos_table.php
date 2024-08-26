@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('viaticos', function (Blueprint $table) {
             $table->id();
+            $table->text('ruta');
+            $table->text('viaje');
+            $table->integer('recibo');
+            $table->dateTime('fechaReposicion')->nullable();
+            $table->float('montoReposicion')->nullable();
+            $table->float('monto');
+            $table->foreignIdFor(\App\Models\Condutor::class);
+            $table->enum('estado', ["liquidado","sin liquidar"])->default('sin liquidar');
             $table->timestamps();
         });
     }

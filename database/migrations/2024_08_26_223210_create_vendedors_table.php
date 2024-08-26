@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('vendedors', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
+            $table->text('surname');
+            $table->enum('estado',['activo','inactivo'])->default('activo');
             $table->timestamps();
         });
     }
