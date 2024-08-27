@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('total');
             $table->text('resultado');
             $table->enum('estado', ['pendiente', 'pagado'])->default('pendiente');
+            $table->enum('ambiente',['DACORE','CENTRO'])->default('CENTRO');
             $table->foreignIdFor(\App\Models\Condutor::class);
             $table->timestamps();
         });
